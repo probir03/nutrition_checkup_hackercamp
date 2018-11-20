@@ -48,44 +48,38 @@ class UserToken(db.Model):
     __tablename__ = 'user_tokens'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.ForeignKey(u'users.id', ondelete=u'CASCADE'), nullable=False)
     token = db.Column(db.String(100), nullable=False)
     expires_at = db.Column(db.DateTime, nullable=False,  default=expires_at)
     created_at = db.Column(db.DateTime, nullable=False, default=func.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=func.now(), onupdate=func.now())
 
-    user = relationship(u'User')
 
     def transform(self):
         return {
             'id': self.id,
             'token': self.token,
             'expiresAt': datetime_to_epoch(self.expires_at),
-            'user': self.user.transform()
         }
 
 
-class intake(db.Model):
+class Intake(db.Model):
     __tablename__ = 'Intakes'
 
     id = db.Column(db.String(100), primary_key=True)
-    user_id = db.Column(db.ForeignKey(u'users.id', ondelete=u'CASCADE'), nullable=False)
     image_name = db.Column(db.String(100), nullable=False)
     calories = db.Column(db.String)
 
-    user = relationship(u'User')
 
     def transform(self):
         return {
             'id': self.id,
             'image_name': self.image_name,
             'calories': self.calories,
-            'user': self.user.transform()
         }
 
 
 class Food(db.Model):
-    __tablename__ = 'Foods'
+    __tablename__ = 'foods'
 
     id = db.Column(db.String(100), primary_key=True)
     name = db.Column(db.String(100), nullable=False)

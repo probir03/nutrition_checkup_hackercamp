@@ -56,6 +56,6 @@ class NutritionRepository():
 
 class FoodRepository():
 
-    def search_food(self, model, findBy):
-        result = filter_attribute(model, findBy).first()
+    def search_food(self, model, text):
+        result = filter_by_regx(model, text).first()
         return result

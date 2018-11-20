@@ -54,7 +54,8 @@ def delete(modelName, filterKeys):
 	return rows
 
 
-
+def filter_by_regx(modelName, text):
+    return modelName.query.filter(modelName.name.ilike(text+'%'))
 
 
 

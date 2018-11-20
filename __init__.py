@@ -9,12 +9,12 @@ app.config.from_pyfile('env.py')
 db = SQLAlchemy(app)
 
 from Http.routes import base
-# from nutrition_calculator.routes import health
+from nutrition_calculator.routes import health
 from Auth.routes import auth
 
 app.register_blueprint(base)
 app.register_blueprint(auth)
-# app.register_blueprint(health)
+app.register_blueprint(health)
 
 # custome handler
 

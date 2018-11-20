@@ -2,7 +2,7 @@ APP_ENV = 'local'
 
 DEBUG = True
 
-SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/category'
+SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/food'
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
