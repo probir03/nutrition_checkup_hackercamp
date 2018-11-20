@@ -11,7 +11,13 @@ UPLOAD_FOLDER = os.path.basename('uploads')
 
 @health.route('/')
 def index():
-	return render_template('home.html')
+    return render_template('home.html')
+
+
+@health.route('/output')
+def out():
+    return render_template('uploaded.html', data={'calorie:10'}, idel=12345)
+
 
 @health.route('/images/upload', methods=['POST'])
 def statement_list():
@@ -25,9 +31,11 @@ def statement_list():
     idel_intake = 0
     if data:
         if data.get('gender').lower() == 'm':
-            idel_intake = 10 * int(data.get('weight')) + 6.25 * int(data.get('height')) - 5 * int(data.get('age')) + 5
+            idel_intake = 10 * int(data.get('weight')) + 6.25 * \
+                int(data.get('height')) - 5 * int(data.get('age')) + 5
         else:
-            idel_intake = 10 * int(data.get('weight')) + 6.25 * int(data.get('height')) - 5 * int(data.get('age')) - 161
+            idel_intake = 10 * int(data.get('weight')) + 6.25 * \
+                int(data.get('height')) - 5 * int(data.get('age')) - 161
 
     file.save(f)
     res = calculate_nutrition(f)

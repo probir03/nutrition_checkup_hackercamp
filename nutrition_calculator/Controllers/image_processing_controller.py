@@ -46,7 +46,7 @@ def calculate_nutrition(file_path):
     labels = process_image(file_path)
     total_cal = 0
     for label in labels:
-        print label.description
+        print(label.description)
         if label.description:
             food = food_repo.search_food(Food, label.description.lower())
             if food:

@@ -1,46 +1,86 @@
 <!DOCTYPE html>
 <html>
   <head>
-  	<meta charset="utf-8">
+    <meta charset="utf-8">
     <title>Nutrition Checker</title>
     <script src="https://use.fontawesome.com/83ae5670e3.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<style>
-body, html {
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    body, html {
     height: 100%;
     margin: 0;
-}
-
-.bg {
+    }
+    .output-section {
     /* The image used */
-    background-image: url("/static/img/1.0.jpg");
-
+    /*background-image: url("/static/img/1.0.jpeg");*/
     /* Full height */
-    height: 100%; 
-
+    height: 100%;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-</style>
+    }
+    .alert {
+          margin: 16px auto;
+    width: 500px;
+    }
+    .info-card {
+      border: 1px solid rgba(0,0,0,.125);
+      width: 50%;
+      margin: 16px auto;
+      
+    }
+    .header {
+        border: 1px solid rgba(0,0,0,.125);
+        background-color: rgba(0,0,0,.03);
+        font-weight: 500;
+        font-size: 22px;
+      }
+    nav {
+            margin-bottom: 0px !important;
+            border-bottom: 1px solid lightgray !important;
+        }
+      .back-btn {
+        margin: 8px 0px;
+      }
+      .item-list {
+        width: 50%;
+    margin: 0px auto;
+      }
+    </style>
     <meta charset="utf-8">
     <title>Nutrient Checker</title>
     <script src="https://use.fontawesome.com/83ae5670e3.js"></script>
   </head>
   <body  class="bg">
-     <h1>Successfully Uploaded</h1>
-    <div id="app">
-      Consumed Calories<h2>{{data.calories}}</h2>
-    </div>
-    <div id="app">
-      Ideal calorie intake in a day<h2>{{idel}}</h2>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        DAILY CALORIE INTAKE MONITOR
+      </a>
+    </nav>
+    <div class="output-section">
+      <div class="alert alert-success" role="alert">
+        Successfully Uploaded
+      </div>
+      <div class="card text-center info-card">
+        <div class="card-header header">
+          Calorie Details
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Consumed Calories: {{data.calories}}</h5>
+          <ul class="list-group item-list">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+          </ul>
+          <h5 class="card-title">Ideal Calories in a day: {{idel}}</h5>
+          <a href="/" class="btn btn-primary back-btn">Go Back</a>
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="/dist/app.js">
     </script>
