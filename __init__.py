@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
 from Exceptions. ExceptionHandler import FoodException
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 CORS(app)
 app.config.from_pyfile('env.py')
 db = SQLAlchemy(app)
